@@ -1,0 +1,50 @@
+-- Movement and interaction blocking rules for the world.
+
+collision = {}
+
+function collision:init()
+  
+  subscribe(player, collision)
+  
+end
+
+function collision:on_notify(subject, event, data)
+  
+  if subject == player then
+    
+	if event == "moved" then
+	  
+	  for e in all({scenery, npcs, containers}) do
+	    
+		for i in all(e) do
+		
+			if i.x == player.x and i.y == player.y then
+			  
+			  player.x -= data.dx
+			  player.y -= data.dy
+			  
+			  return
+			  
+			end
+			
+		  end
+		  
+		end
+		
+		if player.x < 0 or player.x > 127 or player.y < 0 or player.y > 63 then
+		
+		player.x = mid(0, player.x, 127)
+		player.y = mid(0, player.y, 63)
+	    
+		else
+		
+			notify(collision, "player moved", data)
+			
+	    end
+		
+	end
+	
+  end
+  
+end
+

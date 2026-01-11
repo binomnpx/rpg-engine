@@ -1,0 +1,1 @@
+-- Status effects and temporary gameplay modifiers.

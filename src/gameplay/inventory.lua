@@ -1,0 +1,1 @@
+-- Inventory rules: storage, stacking, equipping.

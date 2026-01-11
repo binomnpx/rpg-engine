@@ -1,0 +1,12 @@
+------------------
+-- known issues --
+------------------
+
+6:16 PM 1/8/2026
+scenery, npcs, and containers can share coords right now
+they can occupy the same spot on the map
+
+12:15 AM 1/11/2026
+player can move two tiles in one frame
+this causes inconsistent behavior when a "diagonal" input
+is pressed next to an object that blocks movement

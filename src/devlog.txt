@@ -1,0 +1,103 @@
+2:41 AM 1/8/2026
+I am ending for today cause it's late
+
+I just added the scenery module, found in the entities folder
+
+so far we have terrain and scenery working
+
+feels great
+
+next i might refactor so that we have an interactables class
+that includes scenery, chests, and NPCs
+
+exciting stuff
+
+
+11:42 PM 1/8/2026
+added npcs, containers, player
+
+1:12 AM 1/9/2026
+added util/observer.lua
+ctrl listens for button presses
+player can now move
+collision listens for player movement
+players cant move into scenery
+camera listens for player movement
+the screen scrolls when the player reaches the edge
+
+1:39 AM 1/9/2026
+the camera listens to collision since only collsion knows if
+the player successfully moved
+(ps: i finally found a use for unpack!)
+
+1:57 AM 1/9/2026
+ok i just smashed a bug
+it was caused by me confusing break with return
+not really, but replacing the break i had with a return,
+fixed the bug
+i wanted the whole function to stop running not just the loop
+
+2:10 AM 1/9/2026
+found an interesting artifact of my new way of handling movement
+
+in my new version, you cant move diagonally "through" two pieces of scenery
+this is because movement (and collision) is handled sequentially as two "moves" despite pressing both buttons on the same frame
+in my original version, you can move diagonally through two pieces of scenery because the movement is applied in total before doing the collision check
+
+
+4:50 PM 1/9/2026
+last night i also moved some player code into the ctrl code
+
+since the buttons move the player, i thought why not also
+change the player sprites there
+
+i also changed the observer funcitions
+instead of ..., you pass a table with the necessary data
+i think this solution is more appropriate but maybe ... could
+still work in some elegant way
+
+
+6:28 PM 1/9/2026
+collision checks for scenery, npcs, and containers now
+
+collision keeps player in bounds
+
+added an additional back sprite for the player when moving side to side
+
+
+12:18 AM 1/10/2026
+new sprite felt off so i turned of functionality for now
+
+
+12:39 AM 1/10/2026
+the player keeps track of which way it is facing via
+player.xos and player.yos
+
+using these to invoke an npc or container's invoke method
+
+
+1:34 AM 1/10/2026
+basic messages system works
+you invoke an npc or container and they call messages:add
+messages updates their life timer and deletes them
+messages draws them
+
+
+2:27 AM 1/10/2026
+we have a menu system
+works pretty nicely
+the player can open their inventory by pressing "O"
+conatainers add items to the player's inventory when opened
+
+
+6:16 PM 1/10/2026
+
+items can now be invoked during menuing
+items can control the menu after use
+(eg close all menus, spawn a new menu)
+
+
+1:03 AM 1/11/2026
+added actions such as drink, toss, equip, unequip
+they all work
+if the player equips the trident, it becomes visible on their character
