@@ -48,48 +48,48 @@ __lua__
 --============================================================
 
 function _init()
-  
-  -- core
-  ctrl:init()
-  
-  -- world
-  terrain:init()
-  scenery:init()
-  cam:init()
-  collision:init()
-  
-  -- entities
-  npcs:init()
-  containers:init()
-  player:init()
-  
+	
+	-- core
+	ctrl:init()
+
+	-- world
+	terrain:init()
+	scenery:init()
+	cam:init()
+	collision:init()
+
+	-- entities
+	npcs:init()
+	containers:init()
+	player:init()
+	
 end
 
 function _update60()
-  ctrl:update()
-  cam:update()
-  messages:update()
+	ctrl:update()
+	cam:update()
+	messages:update()
 end
 
 function _draw()
-
-  cls()
-  camera(cam.x, cam.y)
-  
-  -- world
-  map() -- terrain:draw()
-  scenery:draw()
-  
-  -- entities
-  npcs:draw()
-  containers:draw()
-  player:draw()
-  
-  -- ui
-  messages:draw()
-  camera()
-  menus:draw()
-  
+	
+	cls()
+	camera(cam.x, cam.y)
+	
+	-- world
+	map() -- terrain:draw()
+	scenery:draw()
+	
+	-- entities
+	npcs:draw()
+	containers:draw()
+	player:draw()
+	
+	-- ui
+	messages:draw()
+	camera()
+	menus:draw()
+	
 end
 
 __gfx__

@@ -18,11 +18,11 @@ function menus:add(items)
 	
 	add(menus, {
 		
-	   items = items,
-	   index = 0,
-	   x = 32 + #menus*4,
-	   y = 16 + #menus*4
-	   
+		items = items,
+		index = 0,
+		x = 32 + #menus*4,
+		y = 16 + #menus*4
+		
 	})
 	
 end
@@ -41,28 +41,28 @@ function menus:draw()
 		end
 		
 		-- draw the menu
-			 local x = m.x
-			 local y = m.y
-			 
-			 -- black rectangle
-			 rectfill(x, y, x+64, y + 2 + 8*(#m.items+empty), 0)
-			 
-			 -- white outline
-			 rect(x, y, x+64, y + 2 + 8*(#m.items+empty), 7)
-			 
-			 -- item names
-			 for i = 1, #m.items do
-			 	 
-			 	 print(m.items[i].name, x+8, y-5 + 8*i, 7)
-			 	 
-		  end
-		  
-		  -- pointer
-		  if empty == 0 then
-		  spr(menus_sprite_pointer, x+3, y+3 + 8*m.index)
-		  end
-			 
+		local x = m.x
+		local y = m.y
+		
+		-- black rectangle
+		rectfill(x, y, x+64, y + 2 + 8*(#m.items+empty), 0)
+		
+		-- white outline
+		rect(x, y, x+64, y + 2 + 8*(#m.items+empty), 7)
+		
+		-- item names
+		for i = 1, #m.items do
+			
+			print(m.items[i].name, x+8, y-5 + 8*i, 7)
+			
 		end
+		
+		-- pointer
+		if empty == 0 then
+			spr(menus_sprite_pointer, x+3, y+3 + 8*m.index)
+		end
+		
+	end
 	
 end
 
@@ -84,26 +84,26 @@ end
 -- delete item from previous menu
 
 function menus:delprev()
-	 
-	 deli(menus[#menus-1], menus[#menus-1].index+1)
-	 
+	
+	deli(menus[#menus-1], menus[#menus-1].index+1)
+	
 end
 
 
 -- close current menu
 
 function menus:close()
-	 
-	 deli(menus, #menus)
-	 
+	
+	deli(menus, #menus)
+	
 end
 
 
 -- get item from a previous menu
 
 function menus:get(n)
-	 
-	 return menus[#menus-n].items[menus[#menus-n].index+1]
-	 
+	
+	return menus[#menus-n].items[menus[#menus-n].index+1]
+	
 end
 

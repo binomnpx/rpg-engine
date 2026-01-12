@@ -3,7 +3,7 @@
 player = {}
 
 function player:init()
-
+	
 	player.x = 8
 	player.y = 8
 	player.s = player_sprite_frontleft
@@ -23,59 +23,59 @@ end
 
 
 function player:draw()
+	
+	-- keep player visible in
+	-- current screen before
+	-- transitioning
+	
+	local xos = 0
+	local yos = 0
+	
+	if cam.player_shift and
+	cam.timer[1] > 2
+	then
+		-- camera is moving
 		
-		-- keep player visible in
-		-- current screen before
-		-- transitioning
-		
-		local xos = 0
-		local yos = 0
-		
-		if cam.player_shift and
-			cam.timer[1] > 2
-		then
-			-- camera is moving
+		for q in all(cam.q) do
 			
-			for q in all(cam.q) do
+			if q == 0 then
 				
-				if q == 0 then
-					
-					xos += 8
-					
-				elseif q == 1 then
-					
-					xos -= 8
-					
-				elseif q == 2 then
-					
-					yos += 8
-					
-				elseif q == 3 then
-					
-					yos -= 8
-					
-				end
+				xos += 8
+				
+			elseif q == 1 then
+				
+				xos -= 8
+				
+			elseif q == 2 then
+				
+				yos += 8
+				
+			elseif q == 3 then
+				
+				yos -= 8
 				
 			end
 			
 		end
 		
+	end
+	
+	
+	local px = player.x * 8 + xos
+	local py = player.y * 8 + yos
+	
+	-- draw player
+	
+	spr(player.s, px, py, 1, 1, player.flip_x)
+	
+	
+	-- draw hand
+	
+	if player.hand then
 		
-		local px = player.x * 8 + xos
-		local py = player.y * 8 + yos
+		player.hand.draw(px, py)
 		
-		-- draw player
-		
-		spr(player.s, px, py, 1, 1, player.flip_x)
-		
-		
-		-- draw hand
-		
-		if player.hand then
-			
-			player.hand.draw(px, py)
-			
-		end
-		
+	end
+	
 end
 
