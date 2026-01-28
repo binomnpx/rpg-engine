@@ -1,5 +1,21 @@
 -- Actions found in menus
 
+eat = {
+	
+	name = "eat",
+	
+	invoke = function()
+		
+		messages:add("yum", player.x, player.y)
+		
+		deli(player.inventory, menus[#menus-1].index+1)
+		
+		menus:quit()
+		
+	end
+	
+}
+
 drink = {
 	
 	name = "drink",
@@ -23,11 +39,41 @@ toss = {
 	
 	invoke = function()
 		
+		burlaps:add(player.x, player.y, menus:get(1))
+		
 		deli(player.inventory, menus[#menus-1].index+1)
 		
 		menus:delprev()
 		
 		menus:close()
+		
+	end
+	
+}
+
+take = {
+	
+	name = "take",
+	
+	invoke = function()
+		
+		local item = menus:get(1)
+		
+		messages:add(item.name, player.x, player.y)
+		
+		add(player.inventory, item)
+		
+		for b in all(burlaps) do
+			
+			if b.x == player.x + player.xos and b.y == player.y + player.yos then
+				
+				del(b.inventory, item)
+				
+			end
+			
+		end
+		
+		menus:quit()
 		
 	end
 	
@@ -63,4 +109,29 @@ unequip = {
 	
 }
 
+
+scan = {
+	name = "scan",
+	cam_x = nil,
+	cam_y = nil,
+
+	invoke = function()
+		scan.cam_x = cam.x
+		scan.cam_y = cam.y
+		
+		menus:quit()
+		
+		ctrl.state = "scanning"
+		cam.ctrl = "scanning"
+		
+	end,
+	
+	draw = function()
+		
+		if cam.ctrl == "scanning" then
+			?"\^o0ff☉", 119, 121, 7
+		end
+		
+	end
+}
 

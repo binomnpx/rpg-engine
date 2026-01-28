@@ -1,10 +1,8 @@
--- Chests, etc.
+-- Bags on ground that hold dropped items
 
--- containers
+burlaps = {}
 
-containers = {}
-
-function containers:init()
+function burlaps:init()
 	
 	local indices = shuffle(128*64)
 	
@@ -34,8 +32,6 @@ function containers:init()
 					
 				end
 				
-				menus:quit()
-				
 			end,
 			
 			invoke_action = "open"
@@ -46,8 +42,45 @@ function containers:init()
 end
 
 
+function burlaps:add(_x, _y, item)
+	
+	add(burlaps, {
+		
+		x = _x,
+		y = _y,
+		
+		s = 59,
+		inventory = {item},
+		
+		invoke = function(self)
+			
+			menus:add(self.inventory, "burlap")
+			
+		end,
+		
+		invoke_action = "open"
+		
+	})
+	
+end
 
-function containers:draw()
+
+function burlaps:update()
+	
+	for b in all(burlaps) do
+		
+		if #b.inventory == 0 then
+			
+			del(burlaps, b)
+			
+		end
+		
+	end
+	
+end
+
+
+function burlaps:draw()
 	
 	local il = max(0, flr(cam.x/8)-1)
 	local ir = min(127, flr(cam.x/8)+16)
@@ -55,7 +88,7 @@ function containers:draw()
 	local jl = max(0, flr(cam.y/8)-1)
 	local jr = min(63, flr(cam.y/8)+16)
 	
-	for s in all(containers) do
+	for s in all(burlaps) do
 		
 		if s.x >= il and s.x <= ir and
 		s.y >= jl and s.y <= jr

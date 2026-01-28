@@ -2,7 +2,7 @@
 
 menus = {}
 
-function menus:add(items)
+function menus:add(items, ...)
 	
 	if ctrl.state != "menuing" then
 		
@@ -21,7 +21,9 @@ function menus:add(items)
 		items = items,
 		index = 0,
 		x = 32 + #menus*4,
-		y = 16 + #menus*4
+		y = 16 + #menus*4,
+		
+		type = ...
 		
 	})
 	
@@ -85,7 +87,12 @@ end
 
 function menus:delprev()
 	
-	deli(menus[#menus-1], menus[#menus-1].index+1)
+	local prev = menus[#menus-1]
+	
+	deli(prev, prev.index+1)
+	
+	-- shift index up if last item was deleted
+	prev.index = min(prev.index, #prev.items-1)
 	
 end
 
@@ -99,7 +106,7 @@ function menus:close()
 end
 
 
--- get item from a previous menu
+-- get item from current or a previous menu
 
 function menus:get(n)
 	

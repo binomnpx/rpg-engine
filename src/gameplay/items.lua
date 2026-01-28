@@ -6,11 +6,7 @@ apple = {
 	
 	invoke = function()
 		
-		messages:add("yum", player.x, player.y)
-		
-		deli(player.inventory, menus[#menus].index+1)
-		
-		menus:quit()
+		menus:add({eat, toss})
 		
 	end
 	
@@ -23,11 +19,7 @@ orange = {
 	
 	invoke = function()
 		
-		messages:add("yum", player.x, player.y)
-		
-		deli(player.inventory, menus[#menus].index+1)
-		
-		menus:quit()
+		menus:add({eat, toss})
 		
 	end
 	
@@ -40,11 +32,7 @@ banana = {
 	
 	invoke = function()
 		
-		messages:add("yum", player.x, player.y)
-		
-		deli(player.inventory, menus[#menus].index+1)
-		
-		menus:quit()
+		menus:add({eat, toss})
 		
 	end
 	

@@ -10,3 +10,10 @@ they can occupy the same spot on the map
 player can move two tiles in one frame
 this causes inconsistent behavior when a "diagonal" input
 is pressed next to an object that blocks movement
+
+12:04 AM 1/13/2026
+trident does not look right with player back sprite when facing right
+
+10:54 PM 1/23/2026
+pressing x on an open chest will prompt "open"
+only closed chests should do this

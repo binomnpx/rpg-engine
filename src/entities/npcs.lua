@@ -29,7 +29,11 @@ function npcs:init()
 				
 				--[[ add_menu({hi, bye}) ]]
 				
-			end
+				menus:quit()
+				
+			end,
+			
+			invoke_action = "talk"
 			
 		})
 		

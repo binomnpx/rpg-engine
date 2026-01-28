@@ -19,6 +19,8 @@ function player:init()
 	
 	player.hand = nil
 	
+	player.actions = {scan}
+	
 end
 
 

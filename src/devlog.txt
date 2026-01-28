@@ -101,3 +101,42 @@ items can control the menu after use
 added actions such as drink, toss, equip, unequip
 they all work
 if the player equips the trident, it becomes visible on their character
+
+
+8:15 PM 1/12/2026
+yesterday i set up a github repo
+i also tidied up the indenting using chatgpt
+
+
+9:32 PM 1/12/2026
+scan action ported over
+pressing X while controlling the player opens the action menu
+
+entities contain the invoke_name that appears in the action menu when X is pressed when facing the entity
+
+9:59 PM 1/12/2026
+added the eat action, nearly identical to drink
+food prompts you to eat or toss when invoked
+
+10:05 PM 1/12/2026
+im thinking of pushing to github soon
+
+i want to add more actions next since the action menu is barren
+
+
+12:58 AM 1/13/2026
+fixed a bug with scan where control was not given back to player if scan was exited when the initial position was the same
+basically getting states confused
+
+8:57 PM 1/27/2026
+i forgot to log this...
+on 1/23(?) i made it so you could drop items that appear on the ground as a "burlap"
+
+
+9:31 PM 1/27/2026
+added "take" action to remove items from burlaps (for now)
+added "type" key to menus
+if burlap is opened, then it will produce a "burlap" menu
+this tells the menu system to give "take" as an option
+
+this should all be made into one cohesive "inventory" system i think
