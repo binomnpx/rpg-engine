@@ -135,8 +135,28 @@ on 1/23(?) i made it so you could drop items that appear on the ground as a "bur
 
 9:31 PM 1/27/2026
 added "take" action to remove items from burlaps (for now)
-added "type" key to menus
+added "type" key to menus (and ... to menus:add() so the type can be specified)
 if burlap is opened, then it will produce a "burlap" menu
 this tells the menu system to give "take" as an option
 
 this should all be made into one cohesive "inventory" system i think
+
+
+9:51 PM 1/27/2026
+i made another commit. i want to use git to help track changes, really just to see where i left off. this is why i have the devlog, but commits cant hurt
+
+also, take looks for the burlap that you are taking from then it deletes the item from that burlap's inventory
+added burlaps:update() to delete burlaps when empty
+
+i REALLY need to make inventories more cohesive
+
+
+2:26 AM 2/1/2026
+take: instead of searching for the burlap again, the burlap is stored with the player as they interact with it
+
+really, any object the player is interacting with is now stored when interacting
+
+deleted some unused code in burlap.lua (left over from a copy and paste of another file)
+
+in control.lua, in the player section, since i needed to save the object when interacting anyway, i saved some tokens when populating the interaction menu with obj.invoke_name and obj.invoke
+

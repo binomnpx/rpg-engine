@@ -63,15 +63,7 @@ take = {
 		
 		add(player.inventory, item)
 		
-		for b in all(burlaps) do
-			
-			if b.x == player.x + player.xos and b.y == player.y + player.yos then
-				
-				del(b.inventory, item)
-				
-			end
-			
-		end
+		del(player.interaction.inventory, item)
 		
 		menus:quit()
 		

@@ -2,46 +2,6 @@
 
 burlaps = {}
 
-function burlaps:init()
-	
-	local indices = shuffle(128*64)
-	
-	for i = 1,100 do
-		
-		local x = indices[i] % 128
-		local y = flr(indices[i] / 128)
-		
-		add(containers, {
-			
-			x = x,
-			y = y,
-			
-			s = 56,
-			
-			invoke = function(self)
-				
-				if self.s == 56 then
-					
-					self.s = 57
-					
-					local item = rnd({apple, orange, banana})
-					
-					add(player.inventory, item)
-					
-					messages:add(item.name, self.x, self.y)
-					
-				end
-				
-			end,
-			
-			invoke_action = "open"
-		})
-		
-	end
-	
-end
-
-
 function burlaps:add(_x, _y, item)
 	
 	add(burlaps, {

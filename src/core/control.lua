@@ -87,10 +87,7 @@ function ctrl:update()
 		elseif btnp(5) then
 			-- X
 			
-			local inv
-			local act
-			
-			-- invoke object
+			local obj
 			
 			for e in all({npcs, containers, burlaps}) do
 				
@@ -98,11 +95,7 @@ function ctrl:update()
 					
 					if i.x == player.x + player.xos and i.y == player.y + player.yos then
 						
-						inv = function()
-							i:invoke()
-						end
-						
-						act = i.invoke_action
+						obj = i
 						
 					end
 					
@@ -112,8 +105,9 @@ function ctrl:update()
 			
 			local items = {}
 			
-			if inv then
-				add(items, {name = act, invoke = inv})
+			if obj then
+				add(items, {name = obj.invoke_action, invoke = function() obj:invoke() end})
+				player.interaction = obj
 			end
 			
 			for a in all(player.actions) do
