@@ -160,3 +160,19 @@ deleted some unused code in burlap.lua (left over from a copy and paste of anoth
 
 in control.lua, in the player section, since i needed to save the object when interacting anyway, i saved some tokens when populating the interaction menu with obj.invoke_name and obj.invoke
 
+
+12:09 AM 2/2/2026
+- revamped interaction system
+- pressing X will prompt the player to "interact" if facing an interactable entity
+- interacting with an entity closes menus and spawns a menu of interactions (supplied by the entity)
+- added interact() to signal to enitites that they were interacted with
+- entities have on_interact() to do things like change its sprite or delete itself
+- replaced "open" with "search"
+- search closes menus and spawns an "inventory" menu
+- burlaps and containers now have inventories
+
+- burlap no longer had an update function, burlaps are now deleted via on_interact()
+
+- organized main.p8 a little
+
+

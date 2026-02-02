@@ -105,13 +105,18 @@ function ctrl:update()
 			
 			local items = {}
 			
-			if obj then
-				add(items, {name = obj.invoke_action, invoke = function() obj:invoke() end})
-				player.interaction = obj
+			if obj and #obj.interactions > 0 then
+				
+				add(items, {name = "interact", invoke = function() menus:quit(); menus:add(obj.interactions) end})
+				
+				player.subject = obj
+				
 			end
 			
 			for a in all(player.actions) do
+				
 				add(items, a)
+				
 			end
 			
 			menus:add(items)
@@ -138,10 +143,14 @@ function ctrl:update()
 		elseif btnp(4) then
 		-- O
 			
-			menus[#menus] = nil
+			menus:close()
 			
 			if #menus == 0 then
+				
 				ctrl.state = menus.state
+				
+				interact("player left")
+				
 			end
 			
 		elseif btnp(5) then
@@ -149,9 +158,9 @@ function ctrl:update()
 			
 			if #menu.items > 0 then
 				
-				if menu.type == "burlap" then
+				if menu.type == "inventory" then
 					
-					menus:add({take})
+					menus:add({take, leave})
 					
 				else
 					

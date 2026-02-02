@@ -51,6 +51,24 @@ toss = {
 	
 }
 
+
+search = {
+	
+	name = "search",
+	
+	invoke = function()
+		
+		menus:quit()
+		
+		menus:add(player.subject.inventory, "inventory")
+		
+		interact("player searched")
+		
+	end
+	
+}
+
+
 take = {
 	
 	name = "take",
@@ -63,9 +81,28 @@ take = {
 		
 		add(player.inventory, item)
 		
-		del(player.interaction.inventory, item)
+		del(player.subject.inventory, item)
+		
+		interact("item taken")
 		
 		menus:quit()
+		
+		interact("player left")
+		
+	end
+	
+}
+
+
+leave = {
+	
+	name = "leave",
+	
+	invoke = function()
+		
+		menus:quit()
+		
+		interact("player left")
 		
 	end
 	
@@ -127,3 +164,15 @@ scan = {
 	end
 }
 
+
+talk = {
+	
+	name = "talk",
+	
+	invoke = function()
+		
+		interact("player talked")
+		
+	end
+	
+}

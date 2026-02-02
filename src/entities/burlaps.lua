@@ -12,30 +12,35 @@ function burlaps:add(_x, _y, item)
 		s = 59,
 		inventory = {item},
 		
-		invoke = function(self)
-			
-			menus:add(self.inventory, "burlap")
-			
-		end,
+		interactions = {search, leave},
 		
-		invoke_action = "open"
-		
-	})
-	
-end
-
-
-function burlaps:update()
-	
-	for b in all(burlaps) do
-		
-		if #b.inventory == 0 then
+		on_interact = function(self, event)
 			
-			del(burlaps, b)
+			if event == "item taken" then
+				
+				del(burlaps, self)
+				
+			end
+			
+			if event == "player searched" then
+				
+				self.s = 60
+				
+			end
+			
+			if event == "player left" then
+				
+				if #self.inventory > 0 then
+					
+					self.s = 59
+					
+				end
+				
+			end
 			
 		end
 		
-	end
+	})
 	
 end
 

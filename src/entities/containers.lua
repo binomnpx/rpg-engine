@@ -20,25 +20,46 @@ function containers:init()
 			
 			s = 56,
 			
-			invoke = function(self)
+			inventory = {rnd({apple, orange, banana})},
+			
+			interactions = {search, leave},
+			
+			on_interact = function(self, event)
 				
-				if self.s == 56 then
+				if event == "player searched" then
 					
 					self.s = 57
 					
-					local item = rnd({apple, orange, banana})
-					
-					add(player.inventory, item)
-					
-					messages:add(item.name, self.x, self.y)
+					if #self.inventory == 0 then
+						
+						messages:add("empty", self.x, self.y)
+						
+						menus:quit()
+						
+					end
 					
 				end
 				
-				menus:quit()
+				if event == "player left" then
+					
+					if #self.inventory > 0 then
+						
+						self.s = 56
+						
+					end
+					
+				end
 				
-			end,
+				if event == "item taken" and
+					#self.inventory == 0
+				then
+					
+					self.interactions = {}
+					
+				end
+				
+			end
 			
-			invoke_action = "open"
 		})
 		
 	end

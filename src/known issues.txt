@@ -17,3 +17,6 @@ trident does not look right with player back sprite when facing right
 10:54 PM 1/23/2026
 pressing x on an open chest will prompt "open"
 only closed chests should do this
+
+12:34 AM 2/2/2026
+burlaps sometimes can be placed in impossible to interact spots on the map

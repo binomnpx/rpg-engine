@@ -21,19 +21,23 @@ function npcs:init()
 			
 			♥ = 0,
 			
-			invoke = function(self)
-				
-				local msg = rnd({"hey", "yo", "sup"})
-				
-				messages:add(msg, self.x, self.y)
-				
-				--[[ add_menu({hi, bye}) ]]
-				
-				menus:quit()
-				
-			end,
+			interactions = {talk, leave},
 			
-			invoke_action = "talk"
+			on_interact = function(self, event)
+				
+				if event == "player talked" then
+					
+					local msg = rnd({"hey", "yo", "sup"})
+					
+					messages:add(msg, self.x, self.y)
+					
+					--[[ add_menu({hi, bye}) ]]
+					
+					menus:quit()
+					
+				end
+				
+			end
 			
 		})
 		

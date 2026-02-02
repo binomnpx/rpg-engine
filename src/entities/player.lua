@@ -21,7 +21,7 @@ function player:init()
 	
 	player.actions = {scan}
 	
-	player.interaction = nil
+	player.subject = nil
 	
 end
 
