@@ -158,7 +158,9 @@ scan = {
 	draw = function()
 		
 		if cam.ctrl == "scanning" then
-			?"\^o0ff☉", 119, 121, 7
+			--[[ ?"\^o0ff☉", 119, 121, 7 ]]
+			spr(29, 120, 120)
+			pset(123 - flr(scan.cam_x/8) + flr(cam.x/8), 123 - flr(scan.cam_y/8) + flr(cam.y/8), 8)
 		end
 		
 	end
@@ -176,3 +178,68 @@ talk = {
 	end
 	
 }
+
+
+open = {
+	
+	name = "open",
+	
+	invoke = function()
+		
+		interact("player opened")
+		
+		menus:quit()
+		
+	end
+	
+}
+
+
+close = {
+	
+	name = "close",
+	
+	invoke = function()
+		
+		interact("player closed")
+		
+		menus:quit()
+		
+	end
+	
+}
+
+
+runn = {
+	
+	name = "run",
+	
+	invoke = function()
+		
+		player.running = true
+		
+		player.actions = {scan, walk}
+		
+		menus:quit()
+		
+	end
+	
+}
+
+
+walk = {
+	
+	name = "walk",
+	
+	invoke = function()
+		
+		player.running = false
+		
+		player.actions = {scan, runn}
+		
+		menus:quit()
+		
+	end
+	
+}
+

@@ -176,3 +176,21 @@ in control.lua, in the player section, since i needed to save the object when in
 - organized main.p8 a little
 
 
+12:51 PM 2/13/2026
+- added "open" and "close" (doors respond to these)
+- player faces in direction of button press first before moving
+- diagonal movement is now impossible
+
+1:28 PM 2/13/2026
+- scanner range is limited
+- a little scanner map appears in the corner when scanning
+
+
+1:53 PM 2/13/2026
+- added "run" and "walk" to toggle how the player moves
+- diagonal movement available when running
+
+
+
+
+

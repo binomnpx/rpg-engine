@@ -17,6 +17,16 @@ function ctrl:init()
 		
 	end
 	
+	function inrange(x0, y0, x1, y1, range)
+		
+		if (x0 - x1)^2 + (y0 - y1)^2 <= range^2 + range then
+			 
+			 return(true)
+			 
+		end
+		
+	end
+	
 end
 
 function ctrl:update()
@@ -28,52 +38,96 @@ function ctrl:update()
 		if btnp(0) then
 			-- left
 			
-			move(player, -1, 0)
-			--[[ if player.facefront then ]]
-			player.s = player_sprite_frontleft
-			--[[ else ]]
-			--[[ player.s = player_sprite_backleft ]]
-			--[[ end ]]
-			player.flip_x = false
-			player.xos = -1
-			player.yos = 0
+			if not player.flip_x and player.s == player_sprite_frontleft then
+				
+				move(player, -1, 0)
+				
+			else
+				
+				player.s = player_sprite_frontleft
+				player.flip_x = false
+				player.xos = -1
+				player.yos = 0
+				
+				if player.running then
+					
+					move(player, -1, 0)
+					
+				end
+				
+			end
 			
 		end
 		
 		if btnp(1) then
 			-- right
 			
-			move(player, 1, 0)
-			--[[ if player.facefront then ]]
-			player.s = player_sprite_frontleft
-			--[[ else ]]
-			--[[ player.s = player_sprite_backleft ]]
-			--[[ end ]]
-			player.flip_x = true
-			player.xos = 1
-			player.yos = 0
+			if player.flip_x and player.s == player_sprite_frontleft then
+				
+				move(player, 1, 0)
+				
+			else
+				
+				player.s = player_sprite_frontleft
+				player.flip_x = true
+				player.xos = 1
+				player.yos = 0
+				
+				if player.running then
+					
+					move(player, 1, 0)
+					
+				end
+				
+			end
 			
 		end
 		
 		if btnp(2) then
 			-- up
 			
-			move(player, 0, -1)
-			player.s = player_sprite_back
-			player.facefront = false
-			player.xos = 0
-			player.yos = -1
+			if player.s == player_sprite_back then
+				
+				move(player, 0, -1)
+				
+			else
+				
+				player.s = player_sprite_back
+				player.facefront = false
+				player.xos = 0
+				player.yos = -1
+				
+				if player.running then
+					
+					move(player, 0, -1)
+					
+				end
+				
+			end
 			
 		end
 		
 		if btnp(3) then
 			-- down
 			
-			move(player, 0, 1)
-			player.s = player_sprite_front
-			player.facefront = true
-			player.xos = 0
-			player.yos = 1
+			if player.s == player_sprite_front then
+				
+				move(player, 0, 1)
+				
+			else
+				
+				player.s = player_sprite_front
+				player.facefront = true
+				player.xos = 0
+				player.yos = 1
+				
+				if player.running then
+					
+					move(player, 0, 1)
+					
+				end
+				
+			end
 			
 		end
 		
@@ -89,7 +143,7 @@ function ctrl:update()
 			
 			local obj
 			
-			for e in all({npcs, containers, burlaps}) do
+			for e in all({npcs, containers, burlaps, doors}) do
 				
 				for i in all(e) do
 					
@@ -177,14 +231,29 @@ function ctrl:update()
 	elseif ctrl.state == "scanning" then
 		
 		if #cam.q == 0 then
+			
+			local x = flr(cam.x/8)
+			local y = flr(cam.y/8)
+			local q
+			
 			if btnp(0) then
-				add(cam.q, 0)
+				x -= 1
+				q = 0
 			elseif btnp(1) then
-				add(cam.q, 1)
+				x += 1
+				q = 1
 			elseif btnp(2) then
-				add(cam.q, 2)
+				y -= 1
+				q = 2
 			elseif btnp(3) then
-				add(cam.q, 3)
+				y += 1
+				q = 3
+			end
+			
+			if inrange(x, y, flr(scan.cam_x/8), flr(scan.cam_y/8), 3) then
+				
+				add(cam.q, q)
+				
 			end
 
 			if #cam.q > 0 then

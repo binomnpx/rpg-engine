@@ -19,9 +19,11 @@ function player:init()
 	
 	player.hand = nil
 	
-	player.actions = {scan}
+	player.actions = {scan, walk}
 	
 	player.subject = nil
+	
+	player.running = true
 	
 end
 
