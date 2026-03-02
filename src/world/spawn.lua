@@ -1,1 +1,0 @@
--- World population and object spawning logic.

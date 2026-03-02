@@ -1,1 +1,0 @@
--- Authored maps or generation rules and map-loading logic.

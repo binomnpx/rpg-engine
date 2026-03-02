@@ -1,1 +1,0 @@
--- Always-on gameplay UI such as health and status indicators.

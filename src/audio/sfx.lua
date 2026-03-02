@@ -1,1 +1,0 @@
--- Sound effect triggering and management.
