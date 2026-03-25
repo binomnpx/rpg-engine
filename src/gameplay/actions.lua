@@ -302,11 +302,11 @@ target = {
 
 	invoke = function()
 		
-		menus:quit()
-		
-		ctrl.state = "targeting"
+		menus.state = "targeting"
 		
 		player.target = {x = player.x + player.xos, y = player.y + player.yos}
+		
+		menus:quit()
 		
 	end,
 	
@@ -322,4 +322,32 @@ target = {
 		end
 		
 	end
+}
+
+
+teleport = {
+	
+	name = "teleport",
+	
+	invoke = function()
+		
+		menus.state = "targeting"
+		
+		player.targeting = teleport
+		
+		player.target = {x = player.x + player.xos, y = player.y + player.yos}
+		
+		menus:quit()
+		
+	end,
+	
+	targeting = function()
+		
+		player.x = player.target.x
+		player.y = player.target.y
+		
+		ctrl.state = "player"
+		
+	end
+	
 }

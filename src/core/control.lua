@@ -304,6 +304,8 @@ function ctrl:update()
 		
 		if (btnp(4)) ctrl.state = "player"
 		
+		if (btnp(5) and player.targeting) player.targeting.targeting()
+		
 	end
 	
 end
