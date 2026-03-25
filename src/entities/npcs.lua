@@ -19,7 +19,7 @@ function npcs:init()
 			
 			s = 32+flr(rnd(4)),
 			
-			♥ = 0,
+			hp = 0,
 			
 			interactions = {talk, leave},
 			

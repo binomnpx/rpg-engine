@@ -117,6 +117,16 @@ equip = {
 		
 		player.hand = menus:get(1)
 		
+		local missing = true
+		
+		for a in all(player.actions) do
+			
+			if (a == attack) missing = false
+			
+		end
+		
+		if (missing) add(player.actions, attack)
+		
 		menus:quit()
 		
 	end
@@ -132,6 +142,8 @@ unequip = {
 		
 		player.hand = nil
 		
+		del(player.actions, attack)
+		
 		menus:quit()
 		
 	end
@@ -140,11 +152,13 @@ unequip = {
 
 
 scan = {
+	
 	name = "scan",
 	cam_x = nil,
 	cam_y = nil,
 
 	invoke = function()
+		
 		scan.cam_x = cam.x
 		scan.cam_y = cam.y
 		
@@ -218,7 +232,8 @@ runn = {
 		
 		player.running = true
 		
-		player.actions = {scan, walk}
+		del(player.actions, runn)
+		add(player.actions, walk)
 		
 		menus:quit()
 		
@@ -235,7 +250,8 @@ walk = {
 		
 		player.running = false
 		
-		player.actions = {scan, runn}
+		del(player.actions, walk)
+		add(player.actions, runn)
 		
 		menus:quit()
 		
@@ -243,3 +259,67 @@ walk = {
 	
 }
 
+
+attack = {
+	
+	name = "attack",
+	
+	invoke = function()
+		
+		local obj
+		
+		for e in all({npcs, containers, burlaps, doors}) do
+			
+			for i in all(e) do
+				
+				if i.x == player.x + player.xos and i.y == player.y + player.yos then
+					
+					obj = i
+					break
+					
+				end
+				
+			end
+			
+		end
+		
+		if obj and obj.hp then
+			
+			messages:add("-"..player.hand.power.." hp", obj.x, obj.y)
+			
+		end
+		
+		menus:quit()
+		
+	end
+	
+}
+
+
+target = {
+	
+	name = "target",
+
+	invoke = function()
+		
+		menus:quit()
+		
+		ctrl.state = "targeting"
+		
+		player.target = {x = player.x + player.xos, y = player.y + player.yos}
+		
+	end,
+	
+	draw = function()
+		
+		if ctrl.state == "targeting" then
+			
+			local x = player.target.x*8
+			local y = player.target.y*8
+			
+			rect(x,y,x+7,y+7,7)
+			
+		end
+		
+	end
+}

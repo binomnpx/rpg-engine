@@ -84,6 +84,7 @@ function _draw()
 	
 	menus:draw()
 	scan:draw()
+	target:draw()
 	
 end
 

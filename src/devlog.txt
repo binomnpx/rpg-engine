@@ -191,6 +191,7 @@ in control.lua, in the player section, since i needed to save the object when in
 - diagonal movement available when running
 
 
-
+11:31 PM 3/24/2026
+- added "attack" and "target" to actions
 
 
