@@ -121,11 +121,15 @@ equip = {
 		
 		for a in all(player.actions) do
 			
-			if (a == attack) missing = false
+			if a == attack then
+				missing = false
+			end
 			
 		end
 		
-		if (missing) add(player.actions, attack)
+		if missing then
+			add(player.actions, attack)
+		end
 		
 		menus:quit()
 		
@@ -266,13 +270,25 @@ attack = {
 	
 	invoke = function()
 		
+		menus.state = "targeting"
+		
+		player.targeting = attack
+		
+		player.target = {x = player.x + player.xos, y = player.y + player.yos}
+		
+		menus:quit()
+		
+	end,
+	
+	targeting = function()
+		
 		local obj
 		
 		for e in all({npcs, containers, burlaps, doors}) do
 			
 			for i in all(e) do
 				
-				if i.x == player.x + player.xos and i.y == player.y + player.yos then
+				if i.x == player.target.x and i.y == player.target.y then
 					
 					obj = i
 					break
@@ -289,7 +305,7 @@ attack = {
 			
 		end
 		
-		menus:quit()
+		ctrl.state = "player"
 		
 	end
 	
@@ -347,6 +363,26 @@ teleport = {
 		player.y = player.target.y
 		
 		ctrl.state = "player"
+		
+	end
+	
+}
+
+
+warp = {
+	
+	name = "warp",
+	
+	invoke = function()
+		
+		local warp = player.subject
+		
+		locations:load(warp.destination)
+		
+		player.x = warp.destination_x
+		player.y = warp.destination_y
+		
+		menus:quit()
 		
 	end
 	

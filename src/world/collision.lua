@@ -14,7 +14,7 @@ function collision:on_notify(subject, event, data)
 		
 		if event == "moved" then
 			
-			for e in all({scenery, npcs, containers, doors}) do
+			for e in all({scenery, npcs, containers, doors, warps}) do
 				
 				for i in all(e) do
 					

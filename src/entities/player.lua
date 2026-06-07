@@ -15,7 +15,7 @@ function player:init()
 	
 	player.flip_x = false
 	
-	player.inventory = {trident}
+	player.inventory = {trident, sword}
 	
 	player.hand = nil
 	
@@ -77,7 +77,7 @@ function player:draw()
 	
 	-- draw hand
 	
-	if player.hand then
+	if player.hand and player.hand.draw then
 		
 		player.hand.draw(px, py)
 		

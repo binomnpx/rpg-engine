@@ -10,6 +10,7 @@ __lua__
 
 #include world/camera.lua
 #include world/collision.lua
+#include world/locations.lua
 #include world/terrain.lua
 
 #include entities/player.lua
@@ -18,6 +19,7 @@ __lua__
 #include entities/scenery.lua
 #include entities/burlaps.lua
 #include entities/doors.lua
+#include entities/warps.lua
 
 #include gameplay/items.lua
 #include gameplay/weapons.lua
@@ -38,6 +40,8 @@ function _init()
 	scenery:init()
 	cam:init()
 	collision:init()
+	locations:init()
+	warps:init()
 
 	-- entities
 	npcs:init()
@@ -75,16 +79,17 @@ function _draw()
 	containers:draw()
 	burlaps:draw()
 	doors:draw()
+	warps:draw()
 	player:draw()
 	
 	-- ui
 	messages:draw()
+	target:draw()
 	
 	camera()
 	
 	menus:draw()
 	scan:draw()
-	target:draw()
 	
 end
 

@@ -5,7 +5,7 @@ trident = {
 	name = "trident",
 	
 	power = 2,
-	range = 4,
+	range = 2,
 	
 	invoke = function(self)
 		
@@ -47,3 +47,15 @@ trident = {
 	
 }
 
+
+sword = {
+	
+	name = "sword",
+	
+	power = 2,
+	range = 1,
+	
+	invoke = trident.invoke,
+	draw = trident.draw
+	
+}

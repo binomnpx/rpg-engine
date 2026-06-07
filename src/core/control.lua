@@ -143,7 +143,7 @@ function ctrl:update()
 			
 			local obj
 			
-			for e in all({npcs, containers, burlaps, doors}) do
+			for e in all({npcs, containers, burlaps, doors, warps}) do
 				
 				for i in all(e) do
 					
@@ -294,6 +294,8 @@ function ctrl:update()
 				ctrl.state = "player"
 			end
 		end
+	
+	-- targeting -----------------------------------------------------------------------------------------------------------------
 	
 	elseif ctrl.state == "targeting" then
 		
