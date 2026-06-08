@@ -196,3 +196,16 @@ in control.lua, in the player section, since i needed to save the object when in
 
 11:57 PM 3/24/2026
 - added "teleport"
+
+1:46 PM 6/7/2026
+- added locations which are basically just tiles maps now
+- they come with a load function that just writes over the map
+
+- added warps which behave like interactables
+
+2:07 PM 6/7/2026
+- deleted grid
+- unused so far
+- was going to use it for ease of querying entities
+- entitiy lists will be kept small for fast querying
+- now possible due to locations

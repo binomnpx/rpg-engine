@@ -31,7 +31,6 @@ function scenery:init()
 					if self.♥ <= 0 then
 						
 						mset(self.x, self.y, 3)
-						grid[x][y] = nil
 						
 					end
 					

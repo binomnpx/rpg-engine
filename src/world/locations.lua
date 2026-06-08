@@ -9,7 +9,9 @@ function locations:init()
 		width = 8,
 		height = 8,
 		
-		tiles = {}
+		tiles = {},
+		
+		entities = {}
 		
 	})
 	

@@ -6,8 +6,6 @@ function warps:init()
 	
 	add(warps, {
 		
-		home = {},
-		
 		x = 4,
 		y = 12,
 		
