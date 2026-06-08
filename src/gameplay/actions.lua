@@ -284,16 +284,12 @@ attack = {
 		
 		local obj
 		
-		for e in all({npcs, containers, burlaps, doors}) do
+		for e in all(locations.current.entities) do
 			
-			for i in all(e) do
+			if e.combat and e.x == player.target.x and e.y == player.target.y then
 				
-				if i.x == player.target.x and i.y == player.target.y then
-					
-					obj = i
-					break
-					
-				end
+				obj = e
+				break
 				
 			end
 			

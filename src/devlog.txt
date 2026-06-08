@@ -209,3 +209,10 @@ in control.lua, in the player section, since i needed to save the object when in
 - was going to use it for ease of querying entities
 - entitiy lists will be kept small for fast querying
 - now possible due to locations
+
+
+12:49 PM 6/8/2026
+- entities are now stored in locations
+- they are grouped in one and recognized by systems by their data
+- eg the collision system will acknowledge them if collision = true
+- eg the interaction system acknowledges them if interactions != nil

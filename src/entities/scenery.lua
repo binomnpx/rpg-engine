@@ -17,8 +17,10 @@ function scenery:init()
 			local x = mid(0, indices[i] % 128 + flr(rnd(5)), 127)
 			local y = mid(0, flr(indices[i] / 128) + flr(rnd(5)), 63)
 			
-			add(scenery, {
+			add(locations.current.entities, {
 				
+			collision = true,
+			
 				x = x,
 				y = y,
 				
@@ -47,30 +49,6 @@ function scenery:init()
 		end
 		
 	end
-	
-end
-
-
-function scenery:draw()
-	
-	local il = max(0, flr(cam.x/8)-1)
-	local ir = min(127, flr(cam.x/8)+16)
-	
-	local jl = max(0, flr(cam.y/8)-1)
-	local jr = min(63, flr(cam.y/8)+16)
-	
-	for s in all(scenery) do
-		
-		if s.x >= il and s.x <= ir and
-		s.y >= jl and s.y <= jr
-		then
-			palt(0, false)
-			spr(s.s, s.x*8, s.y*8)
-			palt(0, true)
-		end
-		
-	end
-	
 	
 end
 

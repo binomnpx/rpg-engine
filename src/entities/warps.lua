@@ -4,34 +4,23 @@ warps = {}
 
 function warps:init()
 	
-	add(warps, {
+	add(locations.current.entities, {
+	
+		collision = true,
 		
 		x = 4,
 		y = 12,
+		
+		s = 22,
 		
 		destination = locations[1],
 		
 		destination_x = 4,
 		destination_y = 6,
 		
-		interactions = {warp, leave},
-		
-		draw = function(self)
-			
-			spr(22, self.x*8, self.y*8)
-			
-		end
+		interactions = {warp, leave}
 		
 	})
 	
 end
 
-function warps:draw()
-	
-	for w in all(warps) do
-		
-		w:draw()
-		
-	end
-	
-end

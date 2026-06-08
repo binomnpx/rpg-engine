@@ -143,15 +143,11 @@ function ctrl:update()
 			
 			local obj
 			
-			for e in all({npcs, containers, burlaps, doors, warps}) do
+			for e in all(locations.current.entities) do
 				
-				for i in all(e) do
+				if e.interactions and e.x == player.x + player.xos and e.y == player.y + player.yos then
 					
-					if i.x == player.x + player.xos and i.y == player.y + player.yos then
-						
-						obj = i
-						
-					end
+					obj = e
 					
 				end
 				

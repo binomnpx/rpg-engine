@@ -7,7 +7,9 @@ function doors:init()
 	
 	for i = 1,1 do
 		
-		add(doors, {
+		add(locations.current.entities, {
+			
+			collision = true,
 			
 			x = 2,
 			y = 2,
@@ -40,29 +42,11 @@ function doors:init()
 					
 				end
 				
-			end,
-						
-			drw = function(self)
-				
-				spr(self.s, self.x*8, self.y*8)
-				
 			end
 			
 		})
 		
 	end
-	
-end
-
-
-function doors:draw()
-	
-	for d in all(doors) do
-		
-		d:drw()
-		
-	end
-	
 	
 end
 

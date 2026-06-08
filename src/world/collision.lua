@@ -14,18 +14,14 @@ function collision:on_notify(subject, event, data)
 		
 		if event == "moved" then
 			
-			for e in all({scenery, npcs, containers, doors, warps}) do
+			for e in all(locations.current.entities) do
 				
-				for i in all(e) do
+				if e.collision and e.x == player.x and e.y == player.y and not e.open then
 					
-					if i.x == player.x and i.y == player.y and not i.open then
-						
-						player.x -= data.dx
-						player.y -= data.dy
-						
-						return
-						
-					end
+					player.x -= data.dx
+					player.y -= data.dy
+					
+					return
 					
 				end
 				

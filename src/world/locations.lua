@@ -15,6 +15,8 @@ function locations:init()
 		
 	})
 	
+	locations.current = locations[1]
+	
 end
 
 
