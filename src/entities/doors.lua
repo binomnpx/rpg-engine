@@ -16,8 +16,6 @@ function doors:init()
 			
 			s = 61,
 			
-			open = false,
-			
 			interactions = {open, leave},
 			
 			on_interact = function(self, event)
@@ -28,7 +26,7 @@ function doors:init()
 					
 					self.interactions = {close, leave}
 					
-					self.open = true
+					self.collision = false
 					
 				end
 				
@@ -38,7 +36,7 @@ function doors:init()
 					
 					self.interactions = {open, leave}
 					
-					self.open = false
+					self.collision = true
 					
 				end
 				

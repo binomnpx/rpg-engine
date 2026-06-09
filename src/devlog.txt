@@ -216,3 +216,8 @@ in control.lua, in the player section, since i needed to save the object when in
 - they are grouped in one and recognized by systems by their data
 - eg the collision system will acknowledge them if collision = true
 - eg the interaction system acknowledges them if interactions != nil
+
+
+12:10 PM 6/9/2026
+- doors now use their collision key to determine if they are open or closed
+- this simplifies the collision code slightly and uses less tokens

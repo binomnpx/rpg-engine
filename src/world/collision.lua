@@ -16,7 +16,7 @@ function collision:on_notify(subject, event, data)
 			
 			for e in all(locations.current.entities) do
 				
-				if e.collision and e.x == player.x and e.y == player.y and not e.open then
+				if e.collision and e.x == player.x and e.y == player.y then
 					
 					player.x -= data.dx
 					player.y -= data.dy
