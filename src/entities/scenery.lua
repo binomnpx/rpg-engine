@@ -36,12 +36,6 @@ function scenery:init()
 						
 					end
 					
-				end,
-				
-				drw = function(self)
-					
-					spr(self.s, self.x*8, self.y*8)
-					
 				end
 				
 			})

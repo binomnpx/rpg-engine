@@ -18,7 +18,7 @@ function burlaps:add(_x, _y, item)
 			
 			if event == "item taken" then
 				
-				del(burlaps, self)
+				del(locations.current.entities, self)
 				
 			end
 			

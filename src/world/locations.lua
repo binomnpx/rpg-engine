@@ -2,18 +2,33 @@
 
 locations = {}
 
-function locations:init()
+function locations:create(width, height)
 	
-	add(locations, {
+	local location = {
 		
-		width = 8,
-		height = 8,
+		width = width,
+		height = height,
 		
 		tiles = {},
 		
 		entities = {}
 		
-	})
+	}
+	
+	add(locations, location)
+	
+	return location
+	
+end
+
+
+function locations:init()
+	
+	for _ = 1,2 do
+		
+		locations:create(8, 8)
+		
+	end
 	
 	locations.current = locations[1]
 	
@@ -21,6 +36,8 @@ end
 
 
 function locations:load(location)
+	
+	locations.current = location
 	
 	for i = 0, location.width-1 do
 		

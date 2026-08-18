@@ -2,25 +2,30 @@
 
 warps = {}
 
-function warps:init()
+function warps:create(x, y, s, location, destination, destination_x, destination_y)
 	
-	add(locations.current.entities, {
+	return {
 	
 		collision = true,
 		
-		x = 4,
-		y = 12,
+		x = x,
+		y = y,
 		
-		s = 22,
+		s = s,
 		
-		destination = locations[1],
+		destination = destination,
 		
-		destination_x = 4,
-		destination_y = 6,
+		destination_x = destination_x,
+		destination_y = destination_y,
 		
 		interactions = {warp, leave}
 		
-	})
+	}
 	
+end
+
+
+function warps:init()
+		
 end
 

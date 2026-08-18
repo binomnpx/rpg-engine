@@ -236,8 +236,15 @@ runn = {
 		
 		player.running = true
 		
-		del(player.actions, runn)
-		add(player.actions, walk)
+		for i = 1, #player.actions do
+			
+			if player.actions[i] == runn then
+				
+				player.actions[i] = walk
+				
+			end
+			
+		end
 		
 		menus:quit()
 		
@@ -254,8 +261,15 @@ walk = {
 		
 		player.running = false
 		
-		del(player.actions, walk)
-		add(player.actions, runn)
+		for i = 1, #player.actions do
+			
+			if player.actions[i] == walk then
+				
+				player.actions[i] = runn
+				
+			end
+			
+		end
 		
 		menus:quit()
 		

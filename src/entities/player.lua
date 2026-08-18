@@ -15,7 +15,7 @@ function player:init()
 	
 	player.flip_x = false
 	
-	player.inventory = {trident, sword}
+	player.inventory = {trident}
 	
 	player.hand = nil
 	
