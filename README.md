@@ -3,7 +3,7 @@ This is my [RPG](https://en.wikipedia.org/wiki/Role-playing_game) passion projec
 The motivation for creating my own RPG began sometime around 2020. In search of the perfect game, I decided to make my own.
 
 
-![Here are some things you can do in the game](https://github.com/binomnpx/rpg-engine/blob/main/main_20260818_145008.gif)
+![Here are some things you can do in the game](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/main_20260818_145008.gif)
 
 This project serves as a prototype as I refine the game's systems and design. Additionally, it allows me to explore more mature software development practices such as software architecture design, object-oriented programming, and the src-include paradigm.
 
@@ -11,3 +11,10 @@ What you see is the result of a fully fleshed out entity-component-system archit
 
 This project has evolved from design on paper to PICO-8 prototype to learning software development to (hopefully) distributable software. Despite being a programmer for years, this project for the first time made me feel like a true developer.
 
+Here are some of my other works.
+
+![](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/fishes.gif)
+![](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/desert.gif)
+![](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/raptor.gif)
+![](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/aquarium.gif)
+![](https://github.com/binomnpx/rpg-engine/blob/main/GIFs/dragon.gif)
