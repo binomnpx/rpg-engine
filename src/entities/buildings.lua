@@ -23,15 +23,45 @@ function buildings:init()
 				
 				if u+v == 2 then
 					
-					location = locations:create(8,8)
+					location = locations:create(6,6)
 					
+					-- warp
 					add(locations[#locations].entities,
-						warps:create(4, 7, 22, location, locations[1], x+1, y+1)
+						warps:create(3, 4, 22, location, locations[1], x+1, y+1)
 					)
 					
+					-- potted plant
+					add(locations[#locations].entities,
+						{collision = true, x = 1, y = 3, s = 96}
+					)
+					
+					-- bookshelf
+					add(locations[#locations].entities,
+						{collision = true, x = 2, y = 0, s = 97}
+					)
+					
+					-- bed
+					add(locations[#locations].entities,
+						{collision = true, x = 4, y = 2, s = 112}
+					)
+					
+					-- background
+					locations[#locations].draw = function(self)
+						
+						for i = 0, self.width*self.height - 1 do
+							
+							spr(101 - (i%2), (i % self.width)*8, flr(i/self.width)*8)
+							
+						end
+						
+						rect(0, 0, self.width*8-1, self.height*8-1, 2)
+						rect(1, 1, self.width*8-2, self.height*8-2, 14)
+						
+					end
+					
 					destination = location
-					destination_x = 4
-					destination_y = 6
+					destination_x = 3
+					destination_y = 3
 					interactions = {warp, leave}
 					
 				end
@@ -53,6 +83,7 @@ function buildings:init()
 				})
 				
 			end
+			
 		end
 		
 	end

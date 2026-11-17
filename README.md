@@ -1,4 +1,4 @@
-This is my [RPG](https://en.wikipedia.org/wiki/Role-playing_game) passion project made real. It is entirely written in Lua and is designed for the [PICO-8](https://www.lexaloffle.com/pico-8.php) fantasy console.
+This is my [RPG](https://en.wikipedia.org/wiki/Role-playing_video_game) passion project made real. It is entirely written in Lua and is designed for the [PICO-8](https://www.lexaloffle.com/pico-8.php) fantasy console.
 
 The motivation for creating my own RPG began sometime around 2020. In search of the perfect game, I decided to make my own.
 

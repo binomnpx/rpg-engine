@@ -11,7 +11,7 @@ __lua__
 #include world/camera.lua
 #include world/collision.lua
 #include world/locations.lua
-#include world/terrain.lua
+#include world/background.lua
 
 #include entities/player.lua
 #include entities/npcs.lua
@@ -41,7 +41,7 @@ function _init()
 	locations:init()
 	
 	-- world
-	terrain:init()
+	background:init()
 	cam:init()
 	collision:init()
 
@@ -76,7 +76,7 @@ function _draw()
 	camera(cam.x, cam.y)
 	
 	-- world
-	map() -- terrain:draw()
+	background:draw()
 	--[[ scenery:draw() ]]
 	
 	-- entities

@@ -72,7 +72,9 @@ function player:draw()
 	
 	-- draw player
 	
+	palt(1, true)
 	spr(player.s, px, py, 1, 1, player.flip_x)
+	palt(1, false)
 	
 	
 	-- draw hand

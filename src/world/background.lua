@@ -1,12 +1,12 @@
--- Scenery
+-- background
 
 -- lives in map RAM
 
 -- terrain
 
-terrain = {}
+background = {}
 
-function terrain:init()
+function background:init()
 	
 	for x = 0, 127 do
 		
@@ -21,3 +21,11 @@ function terrain:init()
 	end
 	
 end
+
+
+function background:draw()
+	
+	locations.current:draw()
+	
+end
+

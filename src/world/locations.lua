@@ -9,7 +9,7 @@ function locations:create(width, height)
 		width = width,
 		height = height,
 		
-		tiles = {},
+		draw = map,
 		
 		entities = {}
 		
@@ -38,16 +38,6 @@ end
 function locations:load(location)
 	
 	locations.current = location
-	
-	for i = 0, location.width-1 do
-		
-		for j = 0, location.height-1 do
-			
-			mset(i, j, flr(rnd(2)) + 3)
-			
-		end
-		
-	end
 	
 end
 

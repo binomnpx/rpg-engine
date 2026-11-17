@@ -227,3 +227,9 @@ in control.lua, in the player section, since i needed to save the object when in
 - burlaps were not getting deleted (fixed)
 - walk and run now appear in the same place in the menu after selecting them
 
+11:12 PM 9/28/2026
+- months later...
+- locations and warps mingle more smoothly
+- locations can now draw their background
+- warping moves the camera, not just the player
+why do i feel like i havent been adding stuf to this log??

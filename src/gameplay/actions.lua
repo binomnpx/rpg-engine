@@ -392,6 +392,9 @@ warp = {
 		player.x = warp.destination_x
 		player.y = warp.destination_y
 		
+		cam.x = flr(player.x/16)*128
+		cam.y = flr(player.y/16)*128
+		
 		menus:quit()
 		
 	end
