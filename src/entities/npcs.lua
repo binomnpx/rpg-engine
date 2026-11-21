@@ -15,14 +15,15 @@ function npcs:init()
 		add(locations.current.entities, {
 			
 			collision = true,
-			combat = true,
 			
 			x = x,
 			y = y,
 			
 			s = 32+flr(rnd(4)),
 			
-			hp = 0,
+			inventory = {apple},
+			
+			hp = 4,
 			
 			interactions = {talk, leave},
 			

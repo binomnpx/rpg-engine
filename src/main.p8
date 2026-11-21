@@ -28,6 +28,8 @@ __lua__
 #include gameplay/inventory.lua
 #include gameplay/actions.lua
 #include gameplay/interactions.lua
+#include gameplay/damage.lua
+#include gameplay/death.lua
 
 #include ui/menus.lua
 #include ui/messages.lua

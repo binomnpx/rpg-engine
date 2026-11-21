@@ -15,13 +15,17 @@ function entities:draw()
 	
 	for e in all(locations.current.entities) do
 		
-		if e.x >= il and e.x <= ir and
-			e.y >= jl and e.y <= jr
-		then
+		if e.draw == nil then
 			
-			palt(0, false)
-			spr(e.s, e.x*8, e.y*8)
-			palt(0, true)
+			if e.x >= il and e.x <= ir and
+				e.y >= jl and e.y <= jr
+			then
+				
+				palt(0, false)
+				spr(e.s, e.x*8, e.y*8)
+				palt(0, true)
+				
+			end
 			
 		end
 		

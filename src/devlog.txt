@@ -233,3 +233,21 @@ in control.lua, in the player section, since i needed to save the object when in
 - locations can now draw their background
 - warping moves the camera, not just the player
 why do i feel like i havent been adding stuf to this log??
+
+
+1:20 AM 11/20/2026
+- felt the need to work on this
+- attack'ing now deals damage instead of just creating a message
+- if something has hp, then it can be damaged
+- if its hp is zero or less then `death` will delete it and drop its inventory as a burlap
+- damage is handled by the new `damage` function
+- rudamentary but it's a start to a fully fledged combat system
+
+- also, player is now considered an entity, ie it gets registered with the starting location when it is init'd
+- warp action will also update the location the player is registered to
+- the player still exists outside of location (deleting an entity normally erases it forever) and still draws itself
+- i had to tell the entity:draw function to not draw the player
+
+- i altered how burlaps work so that they can hold more than just a single item
+- i didnt have to change much code so nothing broke... sort of
+- "take" doesn't seem to take an entire inventory... or maybe it does... need to check on this

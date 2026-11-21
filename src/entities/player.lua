@@ -25,6 +25,10 @@ function player:init()
 	
 	player.running = true
 	
+	player.hp = 5
+	
+	add(locations.current.entities, player)
+	
 end
 
 

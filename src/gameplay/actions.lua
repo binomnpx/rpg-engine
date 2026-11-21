@@ -39,7 +39,7 @@ toss = {
 	
 	invoke = function()
 		
-		burlaps:add(player.x, player.y, menus:get(1))
+		burlaps:add(player.x, player.y, {menus:get(1)})
 		
 		deli(player.inventory, menus[#menus-1].index+1)
 		
@@ -300,7 +300,7 @@ attack = {
 		
 		for e in all(locations.current.entities) do
 			
-			if e.combat and e.x == player.target.x and e.y == player.target.y then
+			if e.hp and e.x == player.target.x and e.y == player.target.y then
 				
 				obj = e
 				break
@@ -312,6 +312,8 @@ attack = {
 		if obj and obj.hp then
 			
 			messages:add("-"..player.hand.power.." hp", obj.x, obj.y)
+			
+			damage(obj, {power = player.hand.power})
 			
 		end
 		
@@ -387,7 +389,11 @@ warp = {
 		
 		local warp = player.subject
 		
+		del(locations.current.entities, player)
+		
 		locations:load(warp.destination)
+		
+		add(locations.current.entities, player)
 		
 		player.x = warp.destination_x
 		player.y = warp.destination_y

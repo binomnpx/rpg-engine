@@ -2,7 +2,7 @@
 
 burlaps = {}
 
-function burlaps:add(_x, _y, item)
+function burlaps:add(_x, _y, items)
 	
 	add(locations.current.entities, {
 		
@@ -10,7 +10,7 @@ function burlaps:add(_x, _y, item)
 		y = _y,
 		
 		s = 59,
-		inventory = {item},
+		inventory = items,
 		
 		interactions = {search, leave},
 		
